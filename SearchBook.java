@@ -13,7 +13,9 @@ public class SearchBook{
         }
         Set<Map.Entry<String,String>> s = m.entrySet();
         for(Entry<String, String> temp : s){
-            if(temp.getKey().equals(text)){
+            if(temp.getKey().equalsIgnoreCase(text)){
+            	//System.out.println(temp.getValue());
+            	display(temp.getValue());
                 return temp.getValue();
             }
         }
@@ -31,7 +33,7 @@ public class SearchBook{
         LinkedHashMap<String,String> a = new LinkedHashMap<String, String>();
         int i=1;
         for(Entry<String, String> temp : s){
-            if(temp.getValue().equals(text)){
+            if(temp.getValue().equalsIgnoreCase(text)){
                 a.put(Integer.toString(i),temp.getKey());
                 i+=1;
             }
@@ -46,7 +48,7 @@ public class SearchBook{
             Scanner scan=new Scanner(System.in);
             String selected=scan.nextLine();
             for(Entry<String, String> c : b){
-                if(c.getKey().equals(selected)){
+                if(c.getKey().equalsIgnoreCase(selected)){
                     return searchByBookname(c.getValue());
                 }
             }
@@ -65,7 +67,7 @@ public class SearchBook{
 	    LinkedHashMap<String,String> a = new LinkedHashMap<String, String>();
 	    int i=1;
 	    for(Entry<String, String> temp : s){
-	        if(temp.getValue().equals(text)){
+	        if(temp.getValue().equalsIgnoreCase(text)){
 	            a.put(Integer.toString(i),temp.getKey());
 	            i+=1;
 	        }
@@ -79,7 +81,8 @@ public class SearchBook{
 	    Scanner scan=new Scanner(System.in);
 	    String selected=scan.nextLine();
 	    for(Entry<String, String> c : b){
-	        if(c.getKey().equals(selected)){
+	        if(c.getKey().equalsIgnoreCase(selected)){
+	        	//display(c.get);
 	            return searchByBookname(c.getValue());
 	        }
 	    }
@@ -96,12 +99,32 @@ public class SearchBook{
         }
         Set<Map.Entry<String,String>> s = m.entrySet();
         for(Entry<String, String> temp : s){
-            if(temp.getKey().equals(text)){
+            if(temp.getKey().equalsIgnoreCase(text)){
+            	display(temp.getValue());
                 return temp.getValue();
             }
         }
         return "";
     }
+    
+    public  void display(String isbn)throws Exception{
+        Scanner scan = new Scanner(new File(f));
+        while(scan.hasNextLine()){
+            String s = scan.nextLine();
+           
+            String[] bookinfo= s.split(",");
+            //System.out.println(bookinfo[1]);
+            if(bookinfo[1].replaceAll("^\"|\"$", "").equals(isbn)){
+                System.out.println("bookname:"+bookinfo[0]);
+                System.out.println("isbnno:"+bookinfo[1]);
+                System.out.println("author:"+bookinfo[2]);
+                System.out.println("publisher:"+bookinfo[3]);
+                System.out.println("count:"+bookinfo[4]);
+            }
+        }
+    }
+    
+    
     public static void Search()throws Exception{
         SearchBook s = new SearchBook();
         while(true){
@@ -122,37 +145,26 @@ public class SearchBook{
                      if(status.equals("")){
                          System.out.println("book not found");
                      }
-                     else{
-                         System.out.println("book found"+" "+status);
-                     }
+                    
                      break;
                         
                 case 2: 
-                        System.out.println("enter author name:");
-                        String author=sc.nextLine();
-                        String status1=s.searchByAuthor(author);
-                        if(status1.equals(".")){
-                            System.out.println("book not found");
-                            System.out.println("to issue enter 1");
-                            String i=sc.next();
-                           int x= Integer.parseInt(i);  
-                           if(x==1) {
-                        	   
-                           }
-                        }
-                        else{
-                            System.out.println("book found"+" "+status1);
-                        }
-                        break;
+	                	System.out.println("enter author name:");
+	                    String author=sc.nextLine();
+	                    String status1=s.searchByAuthor(author);
+	                    if(status1.equals("")){
+	                        System.out.println("book not found");
+	                    }
+	                    
+	                    break;
+                      
                 case 3: System.out.println("enter isbnno:");
                         String isbnno=sc.nextLine();
                         String status2=s.searchByIsbn(isbnno);
                         if(status2.equals("")){
                             System.out.println("book not found");
                         }
-                        else{
-                            System.out.println("book found"+" "+status2);
-                        }
+                        
                         break;
                 case 4: System.out.println("enter publisher:");
                         String publisher=sc.nextLine();
@@ -160,11 +172,8 @@ public class SearchBook{
                         if(status3.equals("")){
                             System.out.println("book not found");
                         }
-                        else{
-                            System.out.println("book found"+" "+status3);
-                        }
-                        break;
-                case 5: break;
+                       break;
+                //case 5: break;
                 default: System.out.println("enter a valid choice");
                  
             }

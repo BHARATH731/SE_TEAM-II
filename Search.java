@@ -1,7 +1,18 @@
 import java.util.*;
 import java.util.Map.Entry;
 import java.io.*;
+/**This class provides the search functionality to user for library management system.
+*@author team 2
+*@version 1.0
+*@since 2020-11-5
+*/
 public class Search{
+    /** This method is to search the book using isbn number
+    *@param It takes the parameter given by the user that is isbn number of the required book as a string
+    *@exception an exception
+    *@see Exception
+    *@return This method returns an empty String .It actually checks the availability of the book corresponding to the given isbn number and acknowledges the user.
+    */
     public String searchByIsbn(String text)throws Exception{
         Scanner sc=new Scanner(new File("Desktop.csv"));
         sc.useDelimiter("\n");
@@ -18,7 +29,14 @@ public class Search{
         }
         return "";
     }
+    /** This method is to search the book using author name.
+    *@param It takes the parameter given by the user that is name of the author of the required book as a string
+    *@exception an exception
+    *@see Exception
+    *@return This method returns an empty String .It actually checks the availability of the book corresponding to the given author name and acknowledges the user.
+    */
     public String searchByAuthor(String text)throws Exception{
+    
         Scanner sc=new Scanner(new File("Desktop.csv"));
         sc.useDelimiter("\n");
         LinkedHashMap<String,String> m = new LinkedHashMap<String, String>();
@@ -34,6 +52,12 @@ public class Search{
         }
         return "";
     }
+    /** This method is to search the book using publisher.
+    *@param It takes the parameter given by the user that is publisher of the required book as a string
+    *@exception an exception
+    *@see Exception
+    *@return This method returns an empty String .It actually checks the availability of the book corresponding to the given publisher and acknowledges the user.
+    */
     public String searchByPublisher(String text)throws Exception{
         Scanner sc=new Scanner(new File("Desktop.csv"));
         sc.useDelimiter("\n");
@@ -50,6 +74,12 @@ public class Search{
         }
         return "";
     }
+    /**This is the main method which displays the options for the user about the filters available to serach for the book and also acknowledges the user.
+    *@param takes args as param
+    *@return no return type
+    *exception exception
+    *@see Exception
+    */
     public static void main(String[] args)throws Exception{
         Search s = new Search();
         while(true){

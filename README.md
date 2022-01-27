@@ -1,2 +1,3 @@
 # SEARCH_TEAM
-Creating a search feature in LMS.
+Creating feature in LMS(Library Managment System).
+To solve the Library real-time problems.

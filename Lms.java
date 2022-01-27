@@ -10,9 +10,11 @@ public class Lms{
 	public static void main(String[] args)throws Exception {
 		final String f= "C:\\Users\\lenovo\\eclipse-workspace\\Books.csv";
 		Scanner s =new Scanner(System.in);
+		 System.out.println("\n\n                           WELCOME                              ");
 		//int ch=s.nextInt();
 		while(true) {
-			System.out.println("\n******************************LMS*****************************\n");
+			
+			System.out.println("\n\n******************************LMS*****************************\n");
 			System.out.println("1.admin\n2.user\n3.exit");
 			System.out.println("enter choice:");
 			//Scanner s =new Scanner(System.in);
@@ -30,34 +32,35 @@ public class Lms{
 						  try {
 							  switch(Integer.parseInt(choice)){
 								  case 1:
-									  System.out.println("\n\n******************************REGISTER*****************************\n\n");
+									  System.out.println("\n\n\n******************************REGISTER*****************************\n\n\n");
 									  Register r=new Register();
 									  r.run();
 								      break;
 								  case 2:
-									  System.out.println("\n\n*******************************BOOKS*************************\n\n");
+									  System.out.println("\n\n\n*******************************BOOKS*************************\n\n");
 								      AddBooks.addDataToCSV(f);
 									  break;
 									
 								  case 3:
-									  System.out.println("\n\n*****************************INVENTORY*****************************\n\n");
+									  System.out.println("\n\n\n*****************************INVENTORY*****************************\n\n");
 									  ViewBooks.display(f);
 									  break;
 								  case 4:
 									  //user display
-									  System.out.println("\n\n******************************USERS***************************\n\n");
+									  System.out.println("\n\n\n******************************USERS***************************\n\n");
 									  DisplayUsers.display();
 									  break;
 								  case 5:
-									  System.out.println("\n\n*****************************FEEDBACK****************************\n\n");
+									  System.out.println("\n\n\n*****************************FEEDBACK****************************\n\n");
 									  Feedback.displayfeedback();
 									  break;
 								  case 6:
 									  //report
-									  System.out.println("\n\n*****************************TRANSACTION REPORT***********************\n\n");
+									  System.out.println("\n\n\n*****************************TRANSACTION REPORT***********************\n\n");
 									  Report.run();
 									  break;
 								  case 7:
+									  System.out.println("\n\n***********************************************************\n\n");
 									  System.out.println("logging out as admin\n");
 									  break admin;
 								  default:
@@ -87,11 +90,11 @@ public class Lms{
 		                       // s.reset();
 		                        switch(z.nextInt()) {
 			                        case 1:
-			                        	System.out.println("\n\n*******************************SEARCH***************************\n\n");
+			                        	System.out.println("\n\n\n*******************************SEARCH***************************\n\n");
 			                            SearchBook.Search();
 			                            break;
 			                        case 2:
-			                        	System.out.println("\n\n*******************************ISSUE****************************\n\n");
+			                        	System.out.println("\n\n\n*******************************ISSUE****************************\n\n");
 			                            System.out.println("enter isbn no:");
 			                            String isbn1=z.next();
 			                            int i=IssueBook.issue(f, log, isbn1);
@@ -102,18 +105,18 @@ public class Lms{
 			                            }
 			                            break;
 			                        case 3:
-			                        	System.out.println("\n\n*******************************RETURN****************************\n\n");
+			                        	System.out.println("\n\\nn*******************************RETURN****************************\n\n");
 			                            System.out.println("enter isbn no:");
 			                            String isbn=z.next();	
 			                            ReturnBook.returnBook(f,log, isbn);
 			                            break;  
 			                        case 4:
-			                        	System.out.println("\n\n*******************************ACCOUNT MAINTANENCE****************************\n\n");
+			                        	System.out.println("\n\n\n*******************************ACCOUNT MAINTANENCE****************************\n\n");
 			                        	//account maintanence
 			                        	Account.run(log);
 			                        	break;
 			                        case 5:
-			                        	System.out.println("\n\n*******************************FEEDBACK****************************\n\n");
+			                        	System.out.println("\n\n\n*******************************FEEDBACK****************************\n\n");
 			                        	System.out.println("enter feedback");
 			                        	//String feedback=s.next();
 			                        	Feedback.writeFeedback();
@@ -125,6 +128,8 @@ public class Lms{
 			                        	System.out.println("enter a valid choice");
 		                       }
 		                       if(check==1)
+		                    	   System.out.println("\n\n***********************************************************\n\n");
+		                           System.out.println("Logging out as user");
 		                    	   break user;
 		                        
 		                    }
@@ -133,7 +138,9 @@ public class Lms{
 		                            System.out.println(e);
 		                  }
 		                  break;
-					case 3:System.out.println("\n*******************************EXIT******************************\n");
+					case 3:
+						System.out.println("\n\n*******************************THANK YOU FOR USING LMS****************************\n\n");
+						System.out.println("\n*******************************EXIT******************************\n");
 						System.exit(0);
 					default:
 						System.out.println("enter valid choice");

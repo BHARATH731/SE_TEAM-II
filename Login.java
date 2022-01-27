@@ -19,7 +19,7 @@ public class Login {
     *@exception an exception
     *@return This method returns a string of information about the login of the user.
     *@param args unused
-    *@see Exception.
+    *@see Exception.**/
     public String loginRun()throws Exception{
         Scanner sc = new Scanner(System.in);
         System.out.println("enter email:");

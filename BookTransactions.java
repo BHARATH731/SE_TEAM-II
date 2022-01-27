@@ -5,6 +5,9 @@ import java.util.List;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
@@ -12,7 +15,7 @@ public class BookTransactions {
 	
 	public static void updateCSV(String fileToUpdate, String replace,int row, int col)throws Exception
 	{
-                //Reading File
+
 		File inputFile = new File(fileToUpdate);
 
 		// Read existing file 
@@ -30,14 +33,17 @@ public class BookTransactions {
 		
 	}
 	
-	public static void updateCSV(String fileToUpdate,String isbn,int row)throws Exception
+	public static void update(String fileToUpdate,String isbn,int row)throws Exception
 	{
 
 		File inputFile = new File(fileToUpdate);
 
 		// Read existing file 
 		CSVReader reader = new CSVReader(new FileReader(inputFile));
+        Path path=Paths.get(fileToUpdate);
 		List<String[]> data = reader.readAll();
+		System.out.println( Files.readAllLines(path));
+		//List<String[]> data = Files.readAllLines(path);
 		// get CSV row column  and replace with by using row and column
 		String replace[]=data.get(row);
 		int col=replace.length-1;

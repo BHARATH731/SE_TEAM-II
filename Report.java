@@ -1,13 +1,21 @@
 import java.io.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 public class Report{
 	public static final String filei="C:\\Users\\lenovo\\eclipse-workspace\\IssueReport.txt";
     public static final String filer="C:\\Users\\lenovo\\eclipse-workspace\\ReturnReport.txt";
-	
+    public static String date() {
+    	LocalDateTime myDateObj = LocalDateTime.now();
+        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+       
+        String formattedDate = myDateObj.format(myFormatObj);
+        return formattedDate;
+    }
     public static void issue(String email,String isbn)throws Exception{
- 
+           
         
-      //  public void issue(String email,String isbn)throws Exception{
+          
             Scanner scan = new Scanner(new File(filei));
             String[] s={};
             String rep="";
@@ -16,7 +24,7 @@ public class Report{
             while(scan.hasNextLine()){
                 emp=scan.nextLine();
                 if(emp.split(",")[0].equals(email)){
-                    rep=emp+","+isbn;
+                    rep=emp+","+isbn+"/"+date();
                     con=con+rep+"\n";
                 }
                 else{
@@ -42,9 +50,10 @@ public class Report{
             if(emp.split(",")[0].equals(email)){
                 boolean b=valisbn(email,isbn,filei);
                 boolean a=valisbn(email,isbn,filer);
-               // System.out.println(b);
+                System.out.println(b);
+                System.out.println(a);
                 if(b&&(!a)){
-                    rep=emp+","+isbn;
+                    rep=emp+","+isbn+"/"+date();
                     con=con+rep+"\n";
                     System.out.println("Book is returned...");	
                    // return true;
@@ -79,15 +88,29 @@ public class Report{
         }
         String[] iss=t.split(",");
         for(String temp:iss){
-            //System.out.println(temp);
-            if(temp.equals(isbn)){
+            if(temp.split("/")[0].equals(isbn)){
+            	
                 return true;
             }
         }
         return false;
     }
         
-        
+   public static void report(String file)throws Exception {
+			 String st="";
+			 BufferedReader reader = new BufferedReader(new FileReader(file));
+			 while ((st = reader.readLine()) != null) {
+				 System.out.println(st);
+			 }  
+			 reader.close();
+		 
+   }
+   public static void run()throws Exception{
+	   System.out.println("\nUSERS ISSUE REPORT\n");
+	   report(filei);
+	   System.out.println("\nUSERS RETURN REPORT\n");
+	   report(filer);
+   }
         
         
         
@@ -101,7 +124,7 @@ public class Report{
     
         
         
-        
+       
         
         
         

@@ -1,29 +1,14 @@
 import java.io.*;
 import java.util.*;
 import com.opencsv.CSVWriter;
-/** This class is used to add the books by the admin into the library catalog.
-*@author Team 2
-*@version 1.0
-*@since 2020-11-05
-**/
   
 public class AddBooks {
-    private static final String CSV_FILE_PATH
-        = "C:\\Users\\lenovo\\eclipse-workspace\\Books.csv";
-   /** public static void main(String[] args)
-    {
-        addDataToCSV(CSV_FILE_PATH);
-    }**/
-  /** This is a static method used to add the provided data to a csv file
-  *@param it takes a string parameter file name 
-  *@return it doesn't return anything.
-  *@exception throws i/o exception.
-  */
-    public static void addDataToCSV(String output)
+  
+    public static void addDataToCSV(String CSV_FILE_PATH)
     {
         // first create file object for file placed at location
         // specified by filepath
-        File file = new File(output);
+        File file = new File(CSV_FILE_PATH);
        
         Scanner sc = new Scanner(System.in);
         try {

@@ -1,25 +1,24 @@
 import java.util.Scanner;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-/** This class is used to take feedback from the user.
-*@author Team 2
-*@version 1.0
-*@since 2020-11-05
-*/
+
 public class Feedback{
-	/** This is main method that take feedback from the user and stores it in the feedback file.
-	*@param no args passed
-	*@return it doesn't return anything
-	*@exception throws i/o exception
-	*@see i/o exception.
-	*/
-	public static void run() throws IOException {
-		String fileName = "C:\\Users\\lenovo\\eclipse-workspace\\Feedback.txt";
+	public static String fileName = "C:\\Users\\lenovo\\eclipse-workspace\\Feedback.txt";
+	public static void writeFeedback() throws IOException {
 		Scanner s=new Scanner(System.in);
 		String text=s.nextLine();
 		 BufferedWriter writer = new BufferedWriter(new FileWriter(fileName,true));
 		    writer.write(text+'\n');
 		    writer.close();
+	}
+	public static void displayfeedback() throws IOException{
+		 String st="";
+		 BufferedReader reader = new BufferedReader(new FileReader(fileName));
+		 while ((st = reader.readLine()) != null) {
+	            System.out.println(st);
+		 }  
 	}
 }

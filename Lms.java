@@ -7,146 +7,138 @@ import java.util.Scanner;
 import com.opencsv.CSVWriter;
 public class Lms{
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		System.out.println("1.admin\n2.user");
-		System.out.println("enter choice:");
+	public static void main(String[] args)throws Exception {
+		final String f= "C:\\Users\\lenovo\\eclipse-workspace\\Books.csv";
 		Scanner s =new Scanner(System.in);
-		String f="C:\\Users\\lenovo\\eclipse-workspace\\Books.csv";
-		int ch=s.nextInt();
-		switch(ch){
-			case 1:
-				  System.out.println("1.add user\n2.add books\n3.view books\nenter option");
-				  int choice=s.nextInt();
-				  try {
-					  switch(choice){
-						  case 1:
-							  Register r=new Register();
-							  r.registerRun();
-						      break;
-						  case 2:
-							  AddBooks add=new AddBooks();
-						      add.addDataToCSV(f);
-							  break;
-							
-						  case 3:
-							  ViewBooks.display(f);
-							  break;
-							  
-							  
-						  default:
-							  System.exit(0);
-							  // case 5:
-							  //  SearchBook.Search();
+		//int ch=s.nextInt();
+		while(true) {
+			System.out.println("\n******************************LMS*****************************\n");
+			System.out.println("1.admin\n2.user\n3.exit");
+			System.out.println("enter choice:");
+			//Scanner s =new Scanner(System.in);
+			String ch=s.next();
+				switch(Integer.parseInt(ch)){
+					case 1:
+						/**System.out.println("\033[H\033[2J");
+		                System.out.flush();**/
+						
+						admin:while(true) {
+							System.out.println("\n*****************************ADMIN****************************\n");
+						  System.out.println("\n1.add user\n2.add books\n3.view books\n4.view users\n5.view feedback\n6.Report\n7.logout\nenter option");
+						  String choice=s.next();
+						  s.reset();
+						  try {
+							  switch(Integer.parseInt(choice)){
+								  case 1:
+									  System.out.println("\n\n******************************REGISTER*****************************\n\n");
+									  Register r=new Register();
+									  r.run();
+								      break;
+								  case 2:
+									  System.out.println("\n\n*******************************BOOKS*************************\n\n");
+								      AddBooks.addDataToCSV(f);
+									  break;
+									
+								  case 3:
+									  System.out.println("\n\n*****************************INVENTORY*****************************\n\n");
+									  ViewBooks.display(f);
+									  break;
+								  case 4:
+									  //user display
+									  System.out.println("\n\n******************************USERS***************************\n\n");
+									  DisplayUsers.display();
+									  break;
+								  case 5:
+									  System.out.println("\n\n*****************************FEEDBACK****************************\n\n");
+									  Feedback.displayfeedback();
+									  break;
+								  case 6:
+									  //report
+									  System.out.println("\n\n*****************************TRANSACTION REPORT***********************\n\n");
+									  Report.run();
+									  break;
+								  case 7:
+									  System.out.println("logging out as admin\n");
+									  break admin;
+								  default:
+									  System.out.println("enter a valid choice");
+									  //System.exit(0);
+									 // break;
+									  continue;
+								}
+						    }catch(Exception e){
+							  e.printStackTrace();
+		                    }
+		                    
 						}
-				    }catch(Exception e){
-					  e.printStackTrace();
-                    }
-                    break;
-			case 2:
-				  try {
-                    Login l=new Login();
-                    String log=l.loginRun();
-                    while(log!="") {
-                        System.out.println("1.Search\n2.Issue a book\n3.Return\n4.Feeback\nenter choice");
-                        // String c=s.next();
-                        s.reset();
-                        switch(Integer.parseInt(s.next())) {
-	                        case 1:
-	                            SearchBook.Search();
-	                            break;
-	                        case 2:
-	                            System.out.println("enter isbn no:");
-	                            String isbn1=s.next();
-	                            String line1 = ""; 
-	                            //String isbn="123-124";
-	                            int r1=0;
-	                            int q1=0;
-	                            try {
-	                                BufferedReader br = new BufferedReader(new FileReader(f));
-	                                while ((line1 = br.readLine()) != null){   
-	                                    r1=r1+1;
-	                                    String[] Book = line1.split(","); 
-	                                    //System.out.println(Book[1]);
-	                                    //System.out.println(isbn1);
-	                                    String result = Book[1].replaceAll("^\"|\"$", "");
-	                                   // System.out.println(result);
-	                                    if(isbn1.equals(result)){
-	                                        //System.out.println("Book is available");
-	                                        q1=Integer.parseInt(Book[4].replaceAll("^\"|\"$", ""));
-	                                        if(q1>0) {
-		                                        String n1=Integer.toString(q1-1);
-		    	                                //String m1=Integer.toString(q1+1);
-		    	                                //System.out.println(n1);
-		    	                                BookTransactions.updateCSV(f,n1,r1-1,4);
-		    	                               // System.out.println("login email" +log);
-		    	                                Report.issue(log,result);
-		    	                                //BookTransactions.updateCSV(f,"36",r-1,4);
-		    	                                System.out.println("book is issued\nbook should be returned within 14 days starting from today");
-	                                        }
-	                                        else {
-		                                    	System.out.println("book was ran out of stock");
-		                                    	break;
-	                                        }
-	                                    }
-	                                  /***  else {
-	                                    	System.out.println("book is not available");
-	                                    	
-	                                    }**/
-	                                }			
-	                            }
-	                            catch(Exception e) {
-	                                //e.printStackTrace();
-	                                System.out.println(e);
-	                            }
-	                            break;
-	                        case 3:
-	                            System.out.println("enter isbn no:");
-	                            String isbn=s.next();	
-	                            String line = "";  
-	                            //String isbn="123-124";
-	                            int r=0;
-	                            int q=0;
-	                            try{  
-	                                //String f="C:\\Users\\lenovo\\eclipse-workspace\\BooksInfo.csv";
-	                                BufferedReader br = new BufferedReader(new FileReader(f));  
-	                                while ((line = br.readLine()) != null)    
-	                                {   
-	                                    r=r+1;
-	                                    String[] Book = line.split(","); 
-	                                    //System.out.println(Book[1]);
-	                                    //System.out.println(isbn);
-	                                    String result = Book[1]. replaceAll("^\"|\"$", "");
-	                                    if(isbn.equals(result)){
-	                                        //System.out.println("Book is available");
-	                                        q=Integer.parseInt(Book[4]. replaceAll("^\"|\"$", ""));
-	                                        break;
-	                                    }			
-	                                }
-	                                String n=Integer.toString(q-1);
-	                                String m=Integer.toString(q+1);
-	                                //System.out.println(n);
-	                                BookTransactions.updateCSV(f,m,r-1,4);
-	                                Report.returnrep(log, isbn);
-	                               
-	                                
-	                            }
-	                            catch(Exception e) {
-	                                e.printStackTrace();
-	                            }
-	                            break;  
-	                        case 4:
-	                        	System.out.println("enter feedback");
-	                        	//String feedback=s.next();
-	                        	Feedback.run();
-                       }
-                    }
-				  }catch(Exception e) {
-                            //e.printStackTrace();
-                            System.out.println(e);
-                  }
-                  break;
-            
-        }
+						
+						break;
+					case 2:
+						  try {
+							Scanner z =new Scanner(System.in);
+							System.out.println("\n\n*******************************USER****************************\n\n");
+		                    String log=Login.loginRun();
+		                  user : while(log!=null) {
+		                	  System.out.println("\n\n*******************************USER****************************\n\n");
+		                        System.out.println("\n1.Search\n2.Issue a book\n3.Return\n4.account\n5.Feeback\n6.logout\nenter choice");
+		                        s.reset();
+		                        // String c=s.next();
+		                        int check=0;
+		                       // s.reset();
+		                        switch(z.nextInt()) {
+			                        case 1:
+			                        	System.out.println("\n\n*******************************SEARCH***************************\n\n");
+			                            SearchBook.Search();
+			                            break;
+			                        case 2:
+			                        	System.out.println("\n\n*******************************ISSUE****************************\n\n");
+			                            System.out.println("enter isbn no:");
+			                            String isbn1=z.next();
+			                            int i=IssueBook.issue(f, log, isbn1);
+			                            if(i==1){
+			                            	System.out.println("Book is issued\nBook must be returned within 14 days starting from today");
+			                            }else {
+			                            	System.out.println("Book is not available");
+			                            }
+			                            break;
+			                        case 3:
+			                        	System.out.println("\n\n*******************************RETURN****************************\n\n");
+			                            System.out.println("enter isbn no:");
+			                            String isbn=z.next();	
+			                            ReturnBook.returnBook(f,log, isbn);
+			                            break;  
+			                        case 4:
+			                        	System.out.println("\n\n*******************************ACCOUNT MAINTANENCE****************************\n\n");
+			                        	//account maintanence
+			                        	Account.run(log);
+			                        	break;
+			                        case 5:
+			                        	System.out.println("\n\n*******************************FEEDBACK****************************\n\n");
+			                        	System.out.println("enter feedback");
+			                        	//String feedback=s.next();
+			                        	Feedback.writeFeedback();
+			                        	break;
+			                        case 6:
+			                             check=1;
+			                             break;
+			                        default:
+			                        	System.out.println("enter a valid choice");
+		                       }
+		                       if(check==1)
+		                    	   break user;
+		                        
+		                    }
+						  }catch(Exception e) {
+		                            //e.printStackTrace();
+		                            System.out.println(e);
+		                  }
+		                  break;
+					case 3:System.out.println("\n*******************************EXIT******************************\n");
+						System.exit(0);
+					default:
+						System.out.println("enter valid choice");
+		               
+		        }
+		}	
     }
 }

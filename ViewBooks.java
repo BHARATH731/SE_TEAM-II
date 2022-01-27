@@ -136,16 +136,16 @@ public class ViewBooks {
 import java.io.BufferedReader;  
 import java.io.FileReader;  
 import java.io.IOException;  
-public class ViewBooks  
-{  
-	public static void display(String f) 
+public class ViewBooks  {  
+	
+	public static void display(String filepath) 
 	{  
 		String line = "";  
 		//String splitBy = ",";  
 		try   
 		{  
 		 
-			BufferedReader br = new BufferedReader(new FileReader(f));  
+			BufferedReader br = new BufferedReader(new FileReader(filepath));  
 			while ((line = br.readLine()) != null)    
 			{  
 				String[] Book = line.split(",");    // use comma as separator  

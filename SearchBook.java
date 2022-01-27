@@ -1,6 +1,11 @@
 import java.util.*;
 import java.util.Map.Entry;
 import java.io.*;
+/** This class provides the Search functionality for the user who uses library management system.
+*@author Team 2
+*@version 1.0
+*@since 2020-11-05
+*/
 public class SearchBook{
 	String f="C:\\Users\\lenovo\\eclipse-workspace\\Books.csv";
     public String searchByIsbn(String text)throws Exception{

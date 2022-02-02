@@ -19,6 +19,7 @@ public class Register{
             //ew.write(s1);
             rew.close();
             iw.close();
+            ew.close();
             rw.close();
         }
         else{
@@ -29,43 +30,43 @@ public class Register{
     	Scanner scan=new Scanner(System.in);
         Evaluation e = new Evaluation();
         System.out.println("Enter a valid username:");
-        String name = scan.next();
+        String name = System.console().readLine();
         while(!(e.n_val(name))){
                     System.out.println("Enter a valid username:");
-                    name = scan.next();
+                    name = System.console().readLine();
                 }
 
                 System.out.println("Enter EmailID:");
-                String emailid = scan.next();
+                String emailid = System.console().readLine();
                 while((e.e_val(emailid)!=-1)||(e.em_val(emailid)==-1)){
                     System.out.println("Enter a valid Email:");
-                    emailid = scan.next();
+                    emailid = System.console().readLine();
                 }
                 
                 System.out.println("Enter year of study:");
-                int year = Integer.parseInt(scan.next());
+                int year = Integer.parseInt(System.console().readLine());
                 while(!(e.y_val(year))){
                     System.out.println("enter a valid year-(1-4):");
-                    year = Integer.parseInt(scan.next());
+                    year = Integer.parseInt(System.console().readLine());
                 }
                 
                 System.out.println("Enter Branch:");
-                String branch = scan.next();
-                while(!(e.b_val(branch))){
+                String branch = System.console().readLine();
+                while(e.b_val(branch)){
                     System.out.println("Enter a valid branch");
-                    branch = scan.next();
+                    branch = System.console().readLine();
                 }
                 
                 System.out.println("Enter rollNumber:");
-                String rollNumber = scan.next();
+                String rollNumber = System.console().readLine();
                 
                 System.out.println("Create a password:");
-                String rpassword = scan.next();
+                String rpassword = System.console().readLine();
                 FileWriter pw=new FileWriter("C:\\Users\\lenovo\\eclipse-workspace\\Password.txt",true);
                 String pass="";
                 while(true){
                     System.out.println("Re-enter password again");
-                    if(scan.next().equals(rpassword)){
+                    if(System.console().readLine().equals(rpassword)){
                         pass=e.encrypt(rpassword);
                         break;
                     }
@@ -82,15 +83,15 @@ public class Register{
                     pw.write(s1);
                     pw.close();
                     System.out.println("user registeration completed");
-                   // LibraryCaseStudy.run();
+                  
                 }
                 else{
                     System.out.println("user already registerd");
-                   // LibraryCaseStudy.run();
+                  
                 }
                 scan.close();
             }
     
-            
+              
     
 }

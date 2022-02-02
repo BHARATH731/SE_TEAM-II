@@ -4,7 +4,8 @@ import java.io.FileReader;
 public class ReturnBook extends BookTransactions {
 	
 	public static void returnBook(String filepath,String loginmail,String isbn) {
-		String line = "";  
+		String line = ""; 
+		//String result="";
         //String isbn="123-124";
         int r=0;
         int q=0;
@@ -21,13 +22,15 @@ public class ReturnBook extends BookTransactions {
                 if(isbn.equals(result)){
                     //System.out.println("Book is available");
                     q=Integer.parseInt(Book[4]. replaceAll("^\"|\"$", ""));
+                    String m=Integer.toString(q+1);
+                    update(filepath,m,result);
                     break;
                 }			
             }
             String n=Integer.toString(q-1);
-            String m=Integer.toString(q+1);
+         
             //System.out.println(n);
-            updateCSV(filepath,m,r-1,4);
+           // update(filepath,m,result);
             Report.returnrep(loginmail, isbn);
            
             

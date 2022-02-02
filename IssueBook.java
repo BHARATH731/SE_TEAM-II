@@ -21,7 +21,7 @@ public class IssueBook extends BookTransactions{
                     if(q1>0) {
                         String n1=Integer.toString(q1-1);
                      
-                        updateCSV(filepath,n1,r1-1,4);
+                        update(filepath,n1,result);
                        
                         Report.issue(loginmail,result);
                         check= 1;

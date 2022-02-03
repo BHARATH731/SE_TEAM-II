@@ -9,7 +9,7 @@ import java.io.*;
 */
 public class SearchBook{
 	String f="C:\\Users\\lenovo\\eclipse-workspace\\Books.csv";
-	/** Thsi method is used to search the book using isbn number
+	/** This method is used to search the book using isbn number
 	*@param It takes the parameter given by the user that is isbn number of the required book as the string.
 	*@exception an exception.
 	*@see Exception.

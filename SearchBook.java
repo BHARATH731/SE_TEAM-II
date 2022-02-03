@@ -33,7 +33,7 @@ public class SearchBook{
         }
         return "";
     }
-	/** Thsi method is used to search the book using author name.
+	/** This method is used to search the book using author name.
 	*@param It takes the parameter given by the user that is author name of the required book as the string.
 	*@exception an exception.
 	*@see Exception.
@@ -73,7 +73,7 @@ public class SearchBook{
         }
         return "";
     }
-	/** Thsi method is used to search the book using publisher
+	/** This method is used to search the book using publisher
 	*@param It takes the parameter given by the user that is publisher of the required book as the string.
 	*@exception an exception.
 	*@see Exception.
@@ -112,7 +112,7 @@ public class SearchBook{
 	    }
 	    return "";
     }
-    /** Thsi method is used to search the book using book title.
+    /** This method is used to search the book using book title.
 	*@param It takes the parameter given by the user that is title of the required book as the string.
 	*@exception an exception.
 	*@see Exception.

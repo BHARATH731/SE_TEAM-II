@@ -1,8 +1,20 @@
 import java.util.*;
 import java.util.Map.Entry;
 import java.io.*;
+/**
+*This class provides the search functionality for the user who access the library management system.
+*@author Team 2
+*@version 1.0
+*@since 5-11-21
+*/
 public class SearchBook{
 	String f="C:\\Users\\lenovo\\eclipse-workspace\\Books.csv";
+	/** Thsi method is used to search the book using isbn number
+	*@param It takes the parameter given by the user that is isbn number of the required book as the string.
+	*@exception an exception.
+	*@see Exception.
+	*@return This method returns an empty string .It actually checks the availability of the book corresponding to the given isbn number.
+	*/
     public String searchByIsbn(String text)throws Exception{
         Scanner sc=new Scanner(new File(f));
         sc.useDelimiter("\n");
@@ -21,6 +33,12 @@ public class SearchBook{
         }
         return "";
     }
+	/** Thsi method is used to search the book using author name.
+	*@param It takes the parameter given by the user that is author name of the required book as the string.
+	*@exception an exception.
+	*@see Exception.
+	*@return This method returns an empty string .It actually checks the availability of the book corresponding to the given author name.
+	*/
     public String searchByAuthor(String text)throws Exception{
         Scanner sc=new Scanner(new File(f));
         sc.useDelimiter("\n");
@@ -55,6 +73,12 @@ public class SearchBook{
         }
         return "";
     }
+	/** Thsi method is used to search the book using publisher
+	*@param It takes the parameter given by the user that is publisher of the required book as the string.
+	*@exception an exception.
+	*@see Exception.
+	*@return This method returns an empty string .It actually checks the availability of the book corresponding to the given publisher.
+	*/
     public String searchByPublisher(String text)throws Exception{
 	    Scanner sc=new Scanner(new File(f));
 	    sc.useDelimiter("\n");
@@ -88,7 +112,12 @@ public class SearchBook{
 	    }
 	    return "";
     }
-    
+    /** Thsi method is used to search the book using book title.
+	*@param It takes the parameter given by the user that is title of the required book as the string.
+	*@exception an exception.
+	*@see Exception.
+	*@return This method returns an empty string .It actually checks the availability of the book corresponding to the given book title.
+	*/
     public String searchByBookname(String text)throws Exception{
         Scanner sc=new Scanner(new File(f));
         sc.useDelimiter("\n");
@@ -106,7 +135,12 @@ public class SearchBook{
         }
         return "";
     }
-    
+    /** This is the method which displays the number of books based on isbn , author , book title , publisher and also acknowledges the user .
+    *@param takes isbn number as parameter.
+    *@return no return type.
+    *@exception an exception.
+    *@see Exception.
+    */
     public  void display(String isbn)throws Exception{
         Scanner scan = new Scanner(new File(f));
         while(scan.hasNextLine()){
@@ -124,7 +158,12 @@ public class SearchBook{
         }
     }
     
-    
+    /** This is the method which displays the options for the user about the filters available to search for the book and also acknowledges the user
+    *@param no args used.
+    *@return no return type.
+    *@exception an exception
+    *@see Exception.
+    */
     public static void Search()throws Exception{
         SearchBook s = new SearchBook();
         while(true){

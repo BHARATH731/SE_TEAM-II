@@ -1,6 +1,21 @@
 import java.io.*;
 import java.util.*;
+/** This class is used to register the user for the library management system.
+*@author Team 2
+*@since 5-11-21
+*@version 1.0
+*/
 public class Register{
+    /** This method is used to write the user details to a file
+    *@exception an exception.
+    *@return no return type.
+    *@param name 
+    *@param roll 
+    *@param branch 
+    *@param em 
+    *@param year
+    *@see Exception.
+    */
     
     public static void ewrite(String name,String roll,String branch,String em,int year)throws Exception{
         FileWriter rw=new FileWriter("C:\\Users\\lenovo\\eclipse-workspace\\register.txt",true);
@@ -26,6 +41,12 @@ public class Register{
             System.out.println("User Already Existed");
         }
     }
+    /** This method is used to take information of the user as input from the console.
+    *@return no return type.
+    *@param no args used.
+    *@exception throws Exception.
+    *@see Exception.
+    */
     public static void run()throws Exception{
     	Scanner scan=new Scanner(System.in);
         Evaluation e = new Evaluation();

@@ -2,7 +2,11 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-
+/**This class is used to display the users.
+*@author Team 2
+*@version 1.0
+*@since 2021-11-05
+*/
 public class DisplayUsers {
 	 static Evaluation e=new Evaluation();
 	 private static String fileName="C:\\Users\\lenovo\\eclipse-workspace\\Register.txt";

@@ -11,6 +11,11 @@ import java.nio.file.Paths;
 import java.util.*;
 //import com.opencsv.CSVReader;
 //import com.opencsv.CSVWriter;
+/** This class is used to allow book transactions for the user.
+*@author Team 2
+*@version 1.0
+*@since 2021-11-05
+*/
 public class BookTransactions {
 	
 /**	public static void updateCSV(String fileToUpdate, String replace,int row, int col)throws Exception
@@ -58,7 +63,12 @@ public class BookTransactions {
 		writer.close();
 		
 	}  **/
-	
+	/** This method is used to update the book details and book info when any transaction is made.
+	*@param filename
+	*@param replace
+	*@param isbn
+	*@return no return type
+	*/
 	public static void update(String filename,String replace,String isbn)throws Exception{
         Scanner scan = new Scanner(new File(filename));
         String rep="";

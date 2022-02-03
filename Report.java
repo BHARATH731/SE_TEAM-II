@@ -2,6 +2,11 @@ import java.io.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+/** This class is used to generate reports.
+*@author Team 2
+*@since 5-11-21
+*@version 1.0
+*/
 public class Report{
 	public static final String filei="C:\\Users\\lenovo\\eclipse-workspace\\IssueReport.txt";
     public static final String filer="C:\\Users\\lenovo\\eclipse-workspace\\ReturnReport.txt";
@@ -12,6 +17,13 @@ public class Report{
         String formattedDate = myDateObj.format(myFormatObj);
         return formattedDate;
     }
+	/** This method is used to write the issue details to a file.
+	*@param email
+	*@param isbn
+	*@exception an exception
+	*@see Exception 
+	*@return no return type.
+	*/
     public static void issue(String email,String isbn)throws Exception{
            
         
@@ -38,8 +50,13 @@ public class Report{
             f.close();
      }
     
-    
-    
+    /**This method is used to show the return representation.
+    *@param email.
+    *@param isbn
+    *@return no return type.
+    *@exception an exception 
+    *@see Exception.
+    */
     public static void returnrep(String email,String isbn)throws Exception{
         Scanner scan = new Scanner(new File(filer));
         String rep="";
@@ -75,7 +92,14 @@ public class Report{
         f.write(con);
         f.close();
     }
-     
+     /**This method is used to validate the isbn number.
+     *@param email
+     *@param isbn
+     *@param file
+     *@return returns a boolean value based on the validation of the isbn.
+     *@exception exception 
+     *@see exception.
+     */
     public static boolean valisbn(String email,String isbn,String file)throws Exception{
         Scanner sc = new Scanner(new File(file));
         String t="";
@@ -95,7 +119,12 @@ public class Report{
         }
         return false;
     }
-        
+        /**This method is used to display the reports.
+	*@param  file takes the file name as parameter which contains the details of issued and returned books.
+	*@return no return type.
+	*@exception an exception.
+	*@see Exception.
+	*/
    public static void report(String file)throws Exception {
 			 String st="";
 			 BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -105,6 +134,12 @@ public class Report{
 			 reader.close();
 		 
    }
+	/**This method is used to show the reports
+	*@param no args used.
+	*@return no return type.
+	*@exception an exception.
+	*@see Exception.
+	*/
    public static void run()throws Exception{
 	   System.out.println("\nUSERS ISSUE REPORT\n");
 	   report(filei);

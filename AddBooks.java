@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 	/** This class is used to add books by the admin into the library catalog.
 	*@author Team 2
-	*@version 1.o
+	*@version 1.0
 	*@since 2021-11-05
 	*/
 	public class AddBooks{

@@ -18,12 +18,14 @@ public class Evaluation{
         	
             if(temp.equals(em)){
             	//System.out.println(i);
+                sc.close();
                 return i;
             }
             else{
                 i+=1;
             }
         }
+        sc.close();
         return -1;
     }
     public int p_val(String em,String pas)throws Exception{
@@ -35,7 +37,7 @@ public class Evaluation{
             //t=t+decrypt(sc.next());
             t=t+decrypt(sc.next().split(",")[1]);
             t=t+" ";
-            System.out.println("in password"+t);
+           // System.out.println("in password"+t);
         }
         String par[]=t.split(" ");
         int ind = e_val(em);
@@ -117,9 +119,11 @@ public class Evaluation{
         String[] n=t.split(" ");
         for(String temp:n){
             if(temp.equals(name)){
+                sc.close();
                 return false;
             }
         }
+        sc.close();
         return true;
     }
     public boolean y_val(int year)throws Exception{
@@ -130,7 +134,7 @@ public class Evaluation{
     }
     public boolean b_val(String branch)throws Exception{
         String t="cse,ece,eee,civil,it,mechanical";
-        String[] b=t.split(" ");
+        String[] b=t.split(",");
         for(String temp:b){
             if(temp.equals(branch)){
                 return false;

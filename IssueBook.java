@@ -1,7 +1,17 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
-
+/**This class s used to issue the book to the user.
+*@author Team 2
+*@version 1.0
+*@since 2021-11-05
+*/
 public class IssueBook extends BookTransactions{
+	/**This method is used to issu the book to the user using isbn number and decrease that particular book count.
+	*@param loginmail
+	*@param isbn
+	*@return It returns an integer regarding the book count.
+	*@exception no exception.
+	*/
 	public static int issue(String filepath,String loginmail,String isbn1) {
 		String line1 = ""; 
         int r1=0;

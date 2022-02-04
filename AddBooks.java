@@ -56,20 +56,24 @@ import java.util.*;
 		*/
 	    public static void run()throws Exception{
 	       // AddBooks se=new AddBooks();
-	    	
+	    System.out.println("enter no of books to add");
+	    	int n=Integer.parseInt(System.console().readLine());
 	       // Scanner s=new Scanner(System.in);
-	        System.out.println("enter bookname:");
-	        String bookname=System.console().readLine();
-	        System.out.println("enter isbnno:");
-	        String isbnno=System.console().readLine();
-	        System.out.println("enter author:");
-	        String author=System.console().readLine();
-	        System.out.println("enter publisher:");
-	        String publisher=System.console().readLine();
-	        System.out.println("enter count:");
-	        int count=Integer.parseInt(System.console().readLine());
-			//s.close();
-	        addBooks(bookname,isbnno,author,publisher,count);
+	        for(int i=0;i<n;i++) {
+
+	        	System.out.println("enter "+i+1+" book"+"\n"+"enter  bookname:");
+		        String bookname=System.console().readLine();
+		        System.out.println("enter isbnno:");
+		        String isbnno=System.console().readLine();
+		        System.out.println("enter author:");
+		        String author=System.console().readLine();
+		        System.out.println("enter publisher:");
+		        String publisher=System.console().readLine();
+		        System.out.println("enter count:");
+		        int count=Integer.parseInt(System.console().readLine());
+				//s.close();
+		        addBooks(bookname,isbnno,author,publisher,count);
+	        }
 	       // s.reset();
 	        //s.close();
 	    }

@@ -3,10 +3,13 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.*;
 import java.util.Scanner;
-
+/**This class is to provide all the options for the users to access the Libarary Management System.
+*@author Team 2
+*@version 1.0
+*@since 2021-11-05
+*/
 //import com.opencsv.CSVWriter;
 public class Lms{
-
 	public static void main(String[] args)throws Exception {
 		final String f= "C:\\Users\\lenovo\\eclipse-workspace\\Books.csv";
 		final String f1="C:\\Users\\lenovo\\eclipse-workspace\\register.txt";

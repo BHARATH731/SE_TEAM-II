@@ -1,8 +1,18 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
-
+/**This class is used to provide the return functionality for the user.
+*@author Team 2
+*@version 1.0
+*@since 2021-11-05
+*/
 public class ReturnBook extends BookTransactions {
-	
+	/**This method is used to update the book details and count of that specific book when returned.
+	*@param filepath
+	*@param loginmail
+	*@param isbn
+	*@return no return tyoe.
+	*@exception no exception.
+	*/
 	public static void returnBook(String filepath,String loginmail,String isbn) {
 		String line = ""; 
 		//String result="";

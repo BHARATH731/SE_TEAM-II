@@ -1,5 +1,15 @@
 import java.util.*;
+/**This class is used to provide options for the user to access the Library Management system.
+*@author Team 2
+*@version 1.0
+*@since 2021-11-05
+*/
 public class User{
+	/**This method is to provide the acknowledment for the user when he navigates.
+	*@param f
+	*@return no return type.
+	*@exception no exception.
+	*/
     public static void run(String f){
         Scanner z =new Scanner(System.in);
         try{

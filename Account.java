@@ -6,6 +6,13 @@ import java.io.*;
 *@version 1.0
 */
 public class Account extends Report {
+	/**This method is used to display the user trasactions of the books.
+	*@param email.
+	*@param filepath
+	*@return no return type.
+	*@exception an exception.
+	*@see Exception.
+	*/
 	 public static void display(String email,String filepath)throws Exception {
 		 Scanner scan = new Scanner( new File(filepath));
 	     String emp="";

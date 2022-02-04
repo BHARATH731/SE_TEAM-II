@@ -21,8 +21,8 @@ public class Feedback{
 	/**This method is used to display the feedback from the feedback file which was given by the users previously.
 	*@param no args used.
 	*@return no return type.
-	*@exception an exception.
-	*@see Exception.
+	*@exception an IOException.
+	*@see IOException.
 	*/
 	public static void displayfeedback() throws IOException{
 		 String st="";

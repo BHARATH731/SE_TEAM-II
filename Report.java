@@ -141,14 +141,25 @@ public class Report{
 	*@see Exception.
 	*/
    public static void run()throws Exception{
-	   System.out.println("\nUSERS ISSUE REPORT\n");
-	   report(filei);
-	   System.out.println("\nUSERS RETURN REPORT\n");
-	   report(filer);
+	   System.out.println("1.full report\n2.report of a user");
+	   Scanner s =new Scanner(System.in);
+	   switch(Integer.parseInt(s.nextLine())) {
+	   case 1:
+		   System.out.println("\nUSERS ISSUE REPORT\n\n");
+		   report(filei);
+		   System.out.println("\nUSERS RETURN REPORT\n\n");
+		   report(filer);
+		   break;
+	   case 2:
+		   System.out.println("Enter email of the user");
+		   Account.run(s.nextLine());
+		   break;
+		
+	   }
+   
    }
         
-        
-        
+}        
         
         
         
@@ -231,4 +242,4 @@ public class Report{
         i.issue(email, isbn);
         sc.close();
     }***/
-}
+

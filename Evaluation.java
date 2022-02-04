@@ -1,6 +1,17 @@
 import java.io.*;  
 import java.util.*;
+/**This class is used for the purpose of evaluation.
+*@author Team 2
+*@version 1.0
+*@since 2021-11-05
+*/
 public class Evaluation{
+    /**This method is used for checking the email entered is registered or not.
+    *@param em
+    *@return it returns i if the emailid exists otherwise -1.
+    *@exception an exception.
+    *see Exception.
+    */
     public int e_val(String em)throws Exception{
         //Scanner sc=new Scanner(new File("emails.txt"));
         Scanner sc=new Scanner(new File("C:\\Users\\lenovo\\eclipse-workspace\\Password.txt"));
@@ -28,6 +39,13 @@ public class Evaluation{
         sc.close();
         return -1;
     }
+    /**This method is used for the verificatin of email id and respective password of the user.
+    *@param em
+    *@param pas
+    *@return If the emailid and password get matched it returns 1 otherwise 0.
+    *@exception an exception.
+    *@see Exception.
+    */
     public int p_val(String em,String pas)throws Exception{
         //Scanner sc=new Scanner(new File("passwords.txt"));
         Scanner sc=new Scanner(new File("C:\\Users\\lenovo\\eclipse-workspace\\Password.txt"));
@@ -64,7 +82,13 @@ public class Evaluation{
             sc.close();
             return -1;
         }
-    }
+    
+        /**This method is used to encrypt the emailid.
+        *@param em
+        *@return It returns the emailid as the string in encrypted form.
+        *@exception an exception.
+        *@see Exception.
+        */
     public String encrypt(String em)throws Exception{
         char[] ech = new char[em.length()];
         for (int i=0;i<em.length();i++){
@@ -78,6 +102,12 @@ public class Evaluation{
         }
         return s;
     }
+         /**This method is used to decrypt the emailid.
+        *@param em
+        *@return It returns the emailid as the string in decrypted form.
+        *@exception an exception.
+        *@see Exception.
+        */
     public String decrypt(String de)throws Exception{
         char[] ch = new char[de.length()];
         for (int i=0;i<de.length();i++){
@@ -107,6 +137,12 @@ public class Evaluation{
         }
         sc.close();
     }*/
+        /**This method is used to check whether the entered emailid already exists or not.
+        *@param name.
+        *@return it returns if exists otherwise false.
+        *@exception an exception.
+        *@see Exception.
+        */
     public boolean n_val(String name)throws Exception{
         Scanner sc = new Scanner(new FileReader("C:\\Users\\lenovo\\eclipse-workspace\\register.txt"));
         sc.useDelimiter("\n");
@@ -126,12 +162,24 @@ public class Evaluation{
         sc.close();
         return true;
     }
+        /**This method is used for validating the year whether the entered study year of the student is less then or eqaul to 4 and greater than or equal to 1.
+        *@param year.
+        *@return It returns true if year is between 1 and 4 otherwise false.
+        *@exception an exception.
+        *@see Exception.
+        */
     public boolean y_val(int year)throws Exception{
         if(year>=1 && year<=4){
             return true;
         }
         return false;
     }
+        /**This method is used for validating the branch whether the entered branch of the student is in the mentioned branches or  not.
+        *@param branch.
+        *@return It returns true if the branch is valid.
+        *@exception an exception.
+        *@see Exception.
+        */
     public boolean b_val(String branch)throws Exception{
         String t="cse,ece,eee,civil,it,mechanical";
         String[] b=t.split(",");
@@ -142,6 +190,12 @@ public class Evaluation{
         }
         return true;
     }
+        /**This method is used for validating the email whether the entered email ends either with @vvit.net or @gmail.com.
+        *@param em.
+        *@return It returns true if the email ends with @vvit.net or @gmail.com otherwise false.
+        *@exception an exception.
+        *@see Exception.
+        */
     public int em_val(String em) {
         if(em.endsWith("@vvit.net")||em.endsWith("@gmail.com"))
         {

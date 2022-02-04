@@ -11,8 +11,10 @@ public class Account extends Report {
 	     String emp="";
 	     while(scan.hasNextLine()){
 	    	 emp=scan.nextLine();
-	         if(emp.split(",")[0].equals(email)){
-	                System.out.println(emp);
+			 String[] s = emp.split(",");
+	         if(s[0].equals(email)){
+				for(int i=1;i<s.length;i++)
+	                System.out.println(s[i]);
 	          }
 	      }
 	      scan.close();
@@ -24,9 +26,9 @@ public class Account extends Report {
 	 *@see Exception
 	 */
 	public static void run(String email)throws Exception {
-		System.out.println("issued books");
+		System.out.println(email+"\n\n"+"issued books");
 		display(email,filei);
-		System.out.println("returned books");
+		System.out.println("\n\nreturned books");
 		display(email,filer);
 	}
 }
